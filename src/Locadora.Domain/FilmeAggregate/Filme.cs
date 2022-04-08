@@ -1,9 +1,13 @@
+using Locadora.Domain.ClienteAggregate;
 using Locadora.Domain.Common;
+using Locadora.Domain.LocacaoAggregate;
 
 namespace Locadora.Domain.FilmeAggregate;
 
 public class Filme : Entity
 {
+    private List<Locacao> _locacoes = new();
+
     private Filme()
     {
     }
@@ -21,4 +25,11 @@ public class Filme : Entity
     public string Titulo { get; private set; }
     public int ClassificacaoIndicativa { get; private set; }
     public bool Lancamento { get; private set; }
+
+    public IReadOnlyCollection<Locacao> Locacoes => _locacoes.AsReadOnly();
+
+    public void AdicionarLocacao(Cliente cliente)
+    {
+        _locacoes.Add(new Locacao(this, cliente));
+    }
 }

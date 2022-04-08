@@ -1,4 +1,5 @@
 using Locadora.Domain.Common;
+using Locadora.Domain.LocacaoAggregate;
 
 namespace Locadora.Domain.ClienteAggregate;
 
@@ -22,4 +23,5 @@ public class Cliente : Entity
     public string Nome { get; private set; } = null!;
     public Cpf Cpf { get; private set; } = null!;
     public DateTime DataNascimento { get; private set; }
+    public ICollection<Locacao> Locacoes { get; private set; }
 }
