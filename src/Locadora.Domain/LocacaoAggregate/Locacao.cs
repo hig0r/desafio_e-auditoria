@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using Locadora.Domain.ClienteAggregate;
 using Locadora.Domain.Common;
 using Locadora.Domain.FilmeAggregate;
@@ -21,10 +22,10 @@ public class Locacao : Entity
     public Filme Filme { get; private set; }
     public int FilmeId { get; private set; }
     public DateTime DataLocacao { get; private set; } = DateTime.Today;
+    public DateTime? DataDevolucao { get; private set; }
 
-    public DateTime DataDevolucao
+    public void Devolver()
     {
-        get => DataLocacao.AddDays(Filme.Lancamento ? 2 : 3);
-        set { }
+        DataDevolucao = DateTime.Today;
     }
 }
