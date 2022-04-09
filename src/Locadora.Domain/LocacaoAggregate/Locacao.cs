@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using Locadora.Domain.ClienteAggregate;
 using Locadora.Domain.Common;
 using Locadora.Domain.FilmeAggregate;

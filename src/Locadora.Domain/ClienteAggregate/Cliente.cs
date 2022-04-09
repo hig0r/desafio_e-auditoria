@@ -5,6 +5,8 @@ namespace Locadora.Domain.ClienteAggregate;
 
 public class Cliente : Entity
 {
+    private List<Locacao> _locacoes = new();
+
     private Cliente()
     {
     }
@@ -23,5 +25,6 @@ public class Cliente : Entity
     public string Nome { get; private set; } = null!;
     public Cpf Cpf { get; private set; } = null!;
     public DateTime DataNascimento { get; private set; }
-    public ICollection<Locacao> Locacoes { get; private set; }
+
+    public ICollection<Locacao> Locacoes => _locacoes.AsReadOnly();
 }
